@@ -1,122 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 
+/* Variables de color para modo claro */
 :root {
-  --primary-color: #4b0082;         /* Morado oscuro */
-  --bg-color-light: #f0f0f0;
-  --bg-color-dark: #0a0a23;         /* Azul-negro oscuro para fondo dark */
-  --text-color-light: #222;
-  --text-color-dark: #f0f0ff;       /* Texto claro con un leve tono púrpura */
-  --card-bg-light: #ffffff;         /* Fondo claro para cards */
-  --card-text-light: #000000;       /* Texto oscuro para cards en modo claro */
-  --card-bg-dark: #1e1e1e;          /* Fondo oscuro para cards en modo oscuro */
-  --card-text-dark: #ffffff;        /* Texto claro para cards en modo oscuro */
-  --card-shadow-light: rgba(0,0,0,0.1);
-  --card-shadow-dark: rgba(255,135,0,0.3);
+  --primary-color: #ff8700;
+  --background-color: #f9f9f9;
+  --text-color: #222222;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0,0,0,0.1);
+  --link-color: var(--primary-color);
+}
+
+/* Variables para modo oscuro */
+body.dark {
+  --background-color: #121212;
+  --text-color: #eeeeee;
+  --card-bg: #1e1e1e;
+  --card-shadow: rgba(255, 135, 0, 0.3);
+  --link-color: #ffb347;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: var(--bg-color-dark);
-  background-image: url('/images/fondoPortafolio.jpg'); /* Asegúrate de subir esta imagen */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  color: var(--text-color-dark);
-  transition: background-color 0.3s, color 0.3s;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.dark {
-  background-color: var(--bg-color-dark);
-  color: var(--text-color-dark);
+a {
+  color: var(--link-color);
+  text-decoration: none;
 }
 
-header {
-  background-color: var(--primary-color);
-  color: white;
-  padding: 2rem;
-  text-align: center;
+a:hover {
+  text-decoration: underline;
 }
 
-header h1 {
-  margin: 0;
-  font-weight: 600;
-  font-size: 2.5rem;
-  animation: fadeInDown 1s ease forwards;
-}
-
-header p {
-  margin-top: 0.5rem;
-  font-weight: 300;
-  font-size: 1.2rem;
-  animation: fadeInUp 1s ease forwards;
-}
-
-main {
-  max-width: 900px;
-  margin: 3rem auto;
-  padding: 0 1rem;
-}
-
-section {
-  margin-bottom: 3rem;
-  animation: fadeIn 1s ease forwards;
-}
-
-h2 {
-  color: var(--primary-color);
-  font-weight: 600;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid var(--primary-color);
-  padding-bottom: 0.5rem;
-}
-
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-  gap: 1.5rem;
-  padding: 1rem 0;
-}
-
-.project-card {
-  background-color: var(--card-bg-light);
-  color: var(--card-text-light);
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 5px 15px var(--card-shadow-light);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s, color 0.3s;
-  cursor: pointer;
-}
-
-body.dark .project-card {
-  background-color: var(--card-bg-dark);
-  color: var(--card-text-dark);
-  box-shadow: 0 5px 15px var(--card-shadow-dark);
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(255,135,0,0.4);
-}
-
-.project-card h3 {
-  margin-top: 0;
-}
-
-.project-card p {
-  font-weight: 300;
-}
-
-footer {
-  text-align: center;
-  padding: 1.5rem 1rem;
-  color: gray;
-  font-size: 0.9rem;
-}
-
-/* Dark mode toggle button */
+/* Botón toggle */
 .toggle-btn {
   position: fixed;
   top: 1rem;
@@ -137,18 +58,71 @@ footer {
   background: #e67600;
 }
 
-/* Animations */
-@keyframes fadeInDown {
-  from {opacity: 0; transform: translateY(-30px);}
-  to {opacity: 1; transform: translateY(0);}
+/* Contenedores generales */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-@keyframes fadeInUp {
-  from {opacity: 0; transform: translateY(30px);}
-  to {opacity: 1; transform: translateY(0);}
+.section {
+  margin-bottom: 3rem;
 }
 
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+/* Header */
+.site-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+
+.site-header p {
+  margin-top: 0.5rem;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+/* Projects grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 1.5rem;
+}
+
+/* Tarjetas */
+.project-card {
+  background-color: var(--card-bg);
+  box-shadow: 0 5px 15px var(--card-shadow);
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px var(--card-shadow);
+}
+
+.project-card h3 {
+  margin-top: 0;
+}
+
+.project-card p {
+  font-weight: 300;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: gray;
+  font-size: 0.9rem;
 }
