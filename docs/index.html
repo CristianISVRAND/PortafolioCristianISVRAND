@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portafolio Cristian - Dark Mode</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<button class="toggle-btn" id="toggleDark">Modo Oscuro</button>
+
+<header>
+  <h1>Cristian - Desarrollador Web</h1>
+  <p>Diseño y desarrollo sitios modernos con WordPress y tecnologías web</p>
+</header>
+
+<main>
+  <section>
+    <h2>Sobre mí</h2>
+    <p>Actualmente trabajo en ISVRAND creando sitios personalizados con WordPress. Me encanta optimizar la experiencia y crear soluciones digitales simples y efectivas.</p>
+  </section>
+
+  <section>
+    <h2>Proyectos</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Proyecto WordPress A</h3>
+        <p>Diseño personalizado y optimización SEO para empresa X.</p>
+      </div>
+      <div class="project-card">
+        <h3>Proyecto WordPress B</h3>
+        <p>Implementación de tienda online para emprendimiento local.</p>
+      </div>
+      <div class="project-card">
+        <h3>Proyecto Personal</h3>
+        <p>Portfolio web estático con modo oscuro y animaciones.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contacto</h2>
+    <p>Email: cristian@email.com</p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/cristian" target="_blank" rel="noopener noreferrer">linkedin.com/in/cristian</a></p>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Cristian. Todos los derechos reservados.
+</footer>
+
+<script>
+  const toggleBtn = document.getElementById('toggleDark');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    if(document.body.classList.contains('dark')) {
+      toggleBtn.textContent = 'Modo Claro';
+    } else {
+      toggleBtn.textContent = 'Modo Oscuro';
+    }
+  });
+</script>
+
+</body>
+</html>
