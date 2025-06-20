@@ -1,20 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 
 :root {
-  --primary-color: #ff8700;
+  --primary-color: #4b0082;         /* Morado oscuro */
   --bg-color-light: #f0f0f0;
-  --bg-color-dark: #121212;
+  --bg-color-dark: #0a0a23;         /* Azul-negro oscuro para fondo dark */
   --text-color-light: #222;
-  --text-color-dark: #eee;
+  --text-color-dark: #f0f0ff;       /* Texto claro con un leve tono púrpura */
 }
+
 
 body {
   font-family: 'Poppins', sans-serif;
-  margin: 0; padding: 0;
-  background-color: var(--bg-color-light);
-  color: var(--text-color-light);
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color-dark);
+  background-image: url('/images/fondoPortafolio.jpg'); /* Asegúrate de subir esta imagen */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  color: var(--text-color-dark);
   transition: background-color 0.3s, color 0.3s;
 }
+
 
 body.dark {
   background-color: var(--bg-color-dark);
