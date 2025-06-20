@@ -6,8 +6,13 @@
   --bg-color-dark: #0a0a23;         /* Azul-negro oscuro para fondo dark */
   --text-color-light: #222;
   --text-color-dark: #f0f0ff;       /* Texto claro con un leve tono púrpura */
+  --card-bg-light: #ffffff;         /* Fondo claro para cards */
+  --card-text-light: #000000;       /* Texto oscuro para cards en modo claro */
+  --card-bg-dark: #1e1e1e;          /* Fondo oscuro para cards en modo oscuro */
+  --card-text-dark: #ffffff;        /* Texto claro para cards en modo oscuro */
+  --card-shadow-light: rgba(0,0,0,0.1);
+  --card-shadow-dark: rgba(255,135,0,0.3);
 }
-
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -22,7 +27,6 @@ body {
   color: var(--text-color-dark);
   transition: background-color 0.3s, color 0.3s;
 }
-
 
 body.dark {
   background-color: var(--bg-color-dark);
@@ -73,20 +77,23 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
   gap: 1.5rem;
+  padding: 1rem 0;
 }
 
 .project-card {
-  background-color: white;
+  background-color: var(--card-bg-light);
+  color: var(--card-text-light);
   border-radius: 8px;
   padding: 1rem;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px var(--card-shadow-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s, color 0.3s;
   cursor: pointer;
 }
 
 body.dark .project-card {
-  background-color: #1e1e1e;
-  box-shadow: 0 5px 15px rgba(255,135,0,0.3);
+  background-color: var(--card-bg-dark);
+  color: var(--card-text-dark);
+  box-shadow: 0 5px 15px var(--card-shadow-dark);
 }
 
 .project-card:hover {
